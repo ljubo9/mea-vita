@@ -4,11 +4,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 import Layout from "./Layout";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+import Smjestaj from "./Smjestaj";
+import OrganiziranoStanovanje from "./OrganiziranoStanovanje";
+import PomocUKuci from "./PomocUKuci";
 
-const Home = () => <h1 className="text-2xl font-semibold">Dom Mea Vita</h1>;
-const About = () => <h1 className="text-2xl font-semibold">O nama</h1>;
 const Gallery = () => <h1 className="text-2xl font-semibold">Galerija</h1>;
-const Contact = () => <h1 className="text-2xl font-semibold">Kontakt</h1>;
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,10 @@ const router = createBrowserRouter([
       { path: "o-nama", element: <About /> },
       { path: "galerija", element: <Gallery /> },
       { path: "kontakt", element: <Contact /> },
+      { path: "usluge/smjestaj-u-domu", element: <Smjestaj /> },
+      { path: "usluge/organizirano-stanovanje", element: <OrganiziranoStanovanje /> },
+      { path: "usluge/pomoc-u-kuci", element: <PomocUKuci /> },
+
     ],
   },
 ]);
