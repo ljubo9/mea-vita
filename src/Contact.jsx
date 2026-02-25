@@ -11,7 +11,7 @@ export default function Contact() {
 
        <section className="overflow-hidden rounded-xl border border-slate-200 bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-           <div className="bg-sky-950 text-sky-50">
+           <div className="order-2 lg:order-1 bg-sky-950 text-sky-50">
             <div className="p-6 sm:p-8">
               <h2 className="text-xl font-semibold">Karta lokacije</h2>
               <div className="mt-3 h-px w-12 bg-sky-200/30" />
@@ -42,7 +42,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="px-6 pb-6 sm:px-8 sm:pb-8">
+            <div className="order-1 lg-order-2 px-6 pb-6 sm:px-8 sm:pb-8">
               <div className="aspect-[16/10] w-full overflow-hidden rounded-lg ring-1 ring-sky-200/20">
                 <iframe
                   title="Karta - Dom za starije Mea Vita"
