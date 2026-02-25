@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { PhoneIcon } from "@heroicons/react/24/solid";
 
@@ -57,7 +57,11 @@ function ServicesDropdownDesktop() {
         role="menu"
         aria-label="Usluge"
       >
-        <Link className={baseItem} to="/usluge/smjestaj-u-domu" role="menuitem">
+        <Link
+          className={baseItem}
+          to="/usluge/smjestaj-u-domu"
+          role="menuitem"
+        >
           Smještaj u domu
         </Link>
         <Link
@@ -99,11 +103,33 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") close();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-sky-900/50 bg-sky-950/95 backdrop-blur">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between gap-3 py-4">
-          <Link to="/" className="text-lg font-semibold text-sky-50" onClick={close}>
+          <Link
+            to="/"
+            className="text-lg font-semibold text-sky-50"
+            onClick={close}
+          >
             Dom za starije Mea Vita
           </Link>
 
@@ -118,11 +144,11 @@ export default function Header() {
           <button
             type="button"
             className="sm:hidden inline-flex items-center justify-center rounded-md p-3 text-sky-50 hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:ring-offset-2 focus:ring-offset-sky-950"
-            aria-label="Otvori izbornik"
+            aria-label={open ? "Zatvori izbornik" : "Otvori izbornik"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen(true)}
           >
-            <span className="text-xl leading-none">{open ? "✕" : "☰"}</span>
+            <span className="text-xl leading-none">☰</span>
           </button>
 
           <div className="hidden sm:flex items-center gap-6">
@@ -145,71 +171,124 @@ export default function Header() {
             </nav>
           </div>
         </div>
+      </div>
 
-        {open && (
-          <div className="sm:hidden border-t border-sky-900/50 pb-4 pt-3">
-            <nav aria-label="Glavna navigacija (mobitel)" className="grid gap-2">
-              <MobileLink to="/" onClick={close}>
-                Naslovnica
-              </MobileLink>
-              <MobileLink to="/o-nama" onClick={close}>
-                O nama
-              </MobileLink>
+      <div
+        className={[
+          "sm:hidden fixed inset-0 z-[60]",
+          "transition-opacity duration-300",
+          open
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none",
+        ].join(" ")}
+        aria-hidden={!open}
+      >
+        <div className="absolute inset-0 bg-black" onClick={close} />
 
-              <details
-                className={[
-                  "rounded-lg ring-1 ring-inset ring-sky-200/20 bg-sky-950/40",
-                  "open:bg-sky-950/60",
-                  "[&_span[data-caret]]:open:rotate-180",
-                ].join(" ")}
+        <div
+          className={[
+            "absolute right-0 top-0 h-screen w-[88%] max-w-sm",
+            "bg-sky-950",
+            "border-l border-sky-900/50",
+            "transition-transform duration-300 ease-out",
+            open ? "translate-x-0" : "translate-x-full",
+          ].join(" ")}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="flex h-full flex-col">
+            <div className="flex items-center justify-between border-b border-sky-900/50 px-4 py-4">
+              <Link
+                to="/"
+                className="text-lg font-semibold text-sky-50"
+                onClick={close}
               >
-                <summary
-                  className="list-none cursor-pointer select-none px-4 py-3 text-base font-medium text-sky-50 hover:bg-sky-900/60 rounded-lg flex items-center justify-between"
+                Dom za starije Mea Vita
+              </Link>
+
+              <button
+                type="button"
+                onClick={close}
+                className="inline-flex items-center justify-center rounded-md p-3 text-sky-50 hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:ring-offset-2 focus:ring-offset-sky-950"
+                aria-label="Zatvori izbornik"
+              >
+                <span className="text-xl leading-none">✕</span>
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-4 py-5">
+              <a
+                className="inline-flex w-full items-center gap-2 rounded-md px-4 py-3 text-base text-sky-100/90 hover:bg-sky-900 hover:text-white"
+                href="tel:+38542683467"
+                onClick={close}
+              >
+                <PhoneIcon className="h-5 w-5 text-sky-200" aria-hidden="true" />
+                042/683-467
+              </a>
+
+              <nav
+                aria-label="Glavna navigacija (mobitel)"
+                className="mt-4 grid gap-2"
+              >
+                <MobileLink to="/" onClick={close}>
+                  Naslovnica
+                </MobileLink>
+                <MobileLink to="/o-nama" onClick={close}>
+                  O nama
+                </MobileLink>
+
+                <details
+                  className={[
+                    "rounded-lg ring-1 ring-inset ring-sky-200/20 bg-sky-950",
+                    "[&_span[data-caret]]:open:rotate-180",
+                  ].join(" ")}
                 >
-                  <span>Usluge</span>
-                  <span
-                    data-caret
-                    className="transition-transform text-sky-200"
-                    aria-hidden="true"
-                  >
-                    ▾
-                  </span>
-                </summary>
+                  <summary className="flex cursor-pointer select-none items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-sky-50 hover:bg-sky-900 list-none">
+                    <span>Usluge</span>
+                    <span
+                      data-caret
+                      className="text-sky-200 transition-transform"
+                      aria-hidden="true"
+                    >
+                      ▾
+                    </span>
+                  </summary>
 
-                <div className="px-2 pb-2 grid gap-1">
-                  <NavLink
-                    to="/usluge/smjestaj-u-domu"
-                    onClick={close}
-                    className="block rounded-md px-3 py-2 text-sm text-sky-100/90 hover:bg-sky-900 hover:text-white"
-                  >
-                    Smještaj u domu
-                  </NavLink>
-                  <NavLink
-                    to="/usluge/organizirano-stanovanje"
-                    onClick={close}
-                    className="block rounded-md px-3 py-2 text-sm text-sky-100/90 hover:bg-sky-900 hover:text-white"
-                  >
-                    Organizirano stanovanje
-                  </NavLink>
-                  <NavLink
-                    to="/usluge/pomoc-u-kuci"
-                    onClick={close}
-                    className="block rounded-md px-3 py-2 text-sm text-sky-100/90 hover:bg-sky-900 hover:text-white"
-                  >
-                    Pomoć u kući
-                  </NavLink>
-                </div>
-              </details>
+                  <div className="grid gap-1 px-2 pb-2">
+                    <NavLink
+                      to="/usluge/smjestaj-u-domu"
+                      onClick={close}
+                      className="block rounded-md px-3 py-2 text-sm text-sky-100/90 hover:bg-sky-900 hover:text-white"
+                    >
+                      Smještaj u domu
+                    </NavLink>
+                    <NavLink
+                      to="/usluge/organizirano-stanovanje"
+                      onClick={close}
+                      className="block rounded-md px-3 py-2 text-sm text-sky-100/90 hover:bg-sky-900 hover:text-white"
+                    >
+                      Organizirano stanovanje
+                    </NavLink>
+                    <NavLink
+                      to="/usluge/pomoc-u-kuci"
+                      onClick={close}
+                      className="block rounded-md px-3 py-2 text-sm text-sky-100/90 hover:bg-sky-900 hover:text-white"
+                    >
+                      Pomoć u kući
+                    </NavLink>
+                  </div>
+                </details>
 
-              <MobileLink to="/galerija" onClick={close}>
-                Galerija
-              </MobileLink>
-              <MobileLink to="/kontakt" onClick={close}>
-                Kontakt
-              </MobileLink>
-            </nav>
+                <MobileLink to="/galerija" onClick={close}>
+                  Galerija
+                </MobileLink>
+                <MobileLink to="/kontakt" onClick={close}>
+                  Kontakt
+                </MobileLink>
+              </nav>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

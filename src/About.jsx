@@ -1,3 +1,6 @@
+import InfiniteTaggedMarquee from "./InfiniteTaggedMarquee";
+import { GALLERY } from "./data/galleryData";
+
 export default function About() {
   return (
     <section className="space-y-6">
@@ -29,6 +32,7 @@ export default function About() {
           </p>
         </div>
       </div>
+      <InfiniteTaggedMarquee images={GALLERY} total={12} speedSeconds={35} />
     </section>
   );
 }

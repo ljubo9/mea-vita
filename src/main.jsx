@@ -10,8 +10,7 @@ import Contact from "./Contact";
 import Smjestaj from "./Smjestaj";
 import OrganiziranoStanovanje from "./OrganiziranoStanovanje";
 import PomocUKuci from "./PomocUKuci";
-
-const Gallery = () => <h1 className="text-2xl font-semibold">Galerija</h1>;
+import Gallery from "./Gallery";
 
 const router = createBrowserRouter([
   {

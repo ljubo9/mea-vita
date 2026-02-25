@@ -1,4 +1,17 @@
 import { Link } from "react-router-dom";
+import InfiniteTaggedMarquee from "./InfiniteTaggedMarquee";
+import { GALLERY } from "./data/galleryData";
+
+function coverFor(tag) {
+  return GALLERY.find((x) => x.tag === tag)?.src;
+}
+
+const categories = [
+  { tag: "Dom", label: "Dom", coverSrc: coverFor("Dom") },
+  { tag: "Organizirano stanovanje", label: "Organizirano stanovanje", coverSrc: coverFor("Organizirano stanovanje") },
+  { tag: "Pomoć u kući", label: "Pomoć u kući", coverSrc: coverFor("Pomoć u kući") },
+].filter((c) => c.coverSrc);
+
 
 export default function Home() {
   return (
@@ -48,6 +61,7 @@ export default function Home() {
           </Link>
         </li>
       </ul>
+      <InfiniteTaggedMarquee images={GALLERY} total={12} speedSeconds={35} />
     </section>
   );
 }
