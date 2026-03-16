@@ -23,9 +23,7 @@ export default function Home() {
       />
 
       <p className="text-slate-700 leading-7 max-w-4xl">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Dom Mea Vita pružatelj je socijalnih usluga starijim i nemoćnim osobama koji se svakodnevno razvija i kroz iskustvo unapređuje svoje usluge kako bi imali zadovoljne korisnike i njihove obitelji.
       </p>
 
       <p className="text-slate-700 leading-7 max-w-4xl">

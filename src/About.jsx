@@ -18,18 +18,10 @@ export default function About() {
         </div>
 
         <div className="space-y-4 text-slate-700 leading-7">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
-          </p>
-          <p>
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum.
-          </p>
+          <p>Naš dom sa iskusnim, educiranim i nadasve empatičnim djelatnicima ovom se djelatnošću bavi još od 2004. godine kad je osnovan kao Obiteljski dom sa dvadeset korisnika. </p>
+          <p>Danas dom Mea Vita pruža socijalne usluge: trajnog smještaja za 33 korisnika, organiziranog stanovanje za 8 korisnika i pomoć i njega u kući za 10 korisnika.</p> 
+          <p><b>MISIJA</b> doma je stalna i sustavna skrb o starijim i nemoćnim osobama pružajući im toplinu i sigurnost kako bi dostojanstveno proživjeli svoju starost. Naglasak se stavlja na individualni pristup uz poštivanje i uvažavanje korisnika te sveobuhvatnu podrška u zadovoljavanju njegovih potreba. </p>
+          <p><b>VIZIJA</b> doma je stalno podizanje kvalitete usluge korisnika s ciljem da novim oblicima i metodama doprinesimo njihovom sigurnom i humanom zbrinjavanju.</p>
         </div>
       </div>
       <InfiniteTaggedMarquee images={GALLERY} total={12} speedSeconds={35} />
