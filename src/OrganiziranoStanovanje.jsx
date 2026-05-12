@@ -45,12 +45,9 @@ export default function OrganiziranoStanovanje() {
 
         <div className="mt-12 rounded-2xl bg-sky-950/5 p-8 ring-1 ring-sky-100/20">
           <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-900 text-sky-50">
-              🏡
-            </div>
             <div>
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                Topla i domaća atmosfera
+                🏡 Topla i domaća atmosfera
               </h3>
               <p className="text-slate-700">
                 Ova jedinica pruža korisnicima smještaj u toploj i domaćoj atmosferi te korisnici mogu prema svojim željama sa ili bez pomoći našeg stručnog osoblja kuhati razna jela i peći kolače, gledati televizor u boravku ili odmarati u svojoj sobi gledajući televizor ili čitajući knjigu.

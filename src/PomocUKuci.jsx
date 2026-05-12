@@ -40,7 +40,7 @@ export default function PomocUKuci() {
             </p>
           </div>
 
-          <div className="rounded-2xl bg-gradient-to-r from-purple-50 to-sky-50 p-8 ring-1 ring-purple-100/50">
+          <div className="lg:col-span-2 rounded-2xl bg-gradient-to-r from-purple-50 to-sky-50 p-8 ring-1 ring-purple-100/50">
             <h2 className="text-xl font-semibold text-slate-900 mb-4">
               🚶‍♀️ Svakodnevne potrebe
             </h2>
@@ -51,13 +51,10 @@ export default function PomocUKuci() {
         </div>
 
         <div className="mt-12 rounded-2xl bg-sky-950/5 p-8 ring-1 ring-sky-100/20">
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-900 text-sky-50">
-              📍
-            </div>
+          <div className="flex items-start gap-4">              
             <div>
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                Područje pokrivenosti
+                📍 Područje pokrivenosti
               </h3>
               <p className="text-slate-700">
                 Dom Mea Vita pruža usluge pomoći u kući za <strong>10 starijih osoba</strong> na području općine Trnovec Bartolovečki i području grada Varaždina.

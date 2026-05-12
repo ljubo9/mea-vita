@@ -1,5 +1,6 @@
 import InfiniteTaggedMarquee from "./InfiniteTaggedMarquee";
 import { GALLERY } from "./data/galleryData";
+import logo from "./assets/logo.jpg"
 
 export default function About() {
   return (
@@ -11,7 +12,7 @@ export default function About() {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start">
         <div className="overflow-hidden rounded-xl border border-slate-200 bg-white p-6">
           <img
-            src="src/assets/logo.jpg"
+            src={ logo }
             alt="Dom za starije Mea Vita"
             className="w-full h-72 sm:h-96 object-contain"
           />

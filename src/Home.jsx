@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import InfiniteTaggedMarquee from "./InfiniteTaggedMarquee";
 import { GALLERY } from "./data/galleryData";
+import dom from "./assets/dom iz profila.jpg";
 
 function coverFor(tag) {
   return GALLERY.find((x) => x.tag === tag)?.src;
@@ -17,7 +18,7 @@ export default function Home() {
   return (
     <section className="space-y-6">
       <img
-        src="src/assets/dom iz profila.jpg"
+        src={ dom }
         alt="Dom za starije Mea Vita"
         className="mx-auto block w-full max-w-6xl h-64 sm:h-80 md:h-96 rounded-xl object-cover border border-slate-200"
       />
