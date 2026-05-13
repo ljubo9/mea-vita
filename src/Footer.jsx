@@ -41,7 +41,7 @@ export default function Footer() {
               <div className="mt-4">
                 <a
                   className="inline-flex items-center gap-2 rounded-md bg-sky-900/40 px-4 py-3 text-sm text-sky-50 ring-1 ring-inset ring-sky-200/20 hover:bg-sky-900/60"
-                  href="https://facebook.com/"
+                  href="https://www.facebook.com/dommeavits"
                   target="_blank"
                   rel="noreferrer"
                 >
